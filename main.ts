@@ -2,102 +2,123 @@ namespace SpriteKind {
     export const NPC = SpriteKind.create()
 }
 controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
-    if (Tic == 1) {
-        if (Cursor.overlapsWith(Tile0) && TicTacToe[0][0] == "-") {
-            mySprite = sprites.create(assets.image`SnowyForest`, SpriteKind.Player)
-            if (TicTacToePlayer == 0) {
-                Tile0.setImage(assets.image`X`)
-                TicTacToePlayer = 1
-                TicTacToe[0][0] = "X"
-            } else {
-                Tile0.setImage(assets.image`O`)
-                TicTacToePlayer = 0
-                TicTacToe[0][0] = "O"
-            }
-        } else if (Cursor.overlapsWith(Tile1) && TicTacToe[0][1] == "-") {
-            if (TicTacToePlayer == 0) {
-                Tile1.setImage(assets.image`X`)
-                TicTacToePlayer = 1
-                TicTacToe[0][1] = "X"
-            } else {
-                Tile1.setImage(assets.image`O`)
-                TicTacToePlayer = 0
-                TicTacToe[0][1] = "O"
-            }
-        } else if (Cursor.overlapsWith(Tile2) && TicTacToe[0][2] == "-") {
-            if (TicTacToePlayer == 0) {
-                Tile2.setImage(assets.image`X`)
-                TicTacToePlayer = 1
-                TicTacToe[0][2] = "X"
-            } else {
-                Tile2.setImage(assets.image`O`)
-                TicTacToePlayer = 0
-                TicTacToe[0][2] = "O"
-            }
-        } else if (Cursor.overlapsWith(Tile3) && TicTacToe[1][0] == "-") {
-            if (TicTacToePlayer == 0) {
-                Tile3.setImage(assets.image`X`)
-                TicTacToePlayer = 1
-                TicTacToe[1][0] = "X"
-            } else {
-                Tile3.setImage(assets.image`O`)
-                TicTacToePlayer = 0
-                TicTacToe[1][0] = "O"
-            }
-        } else if (Cursor.overlapsWith(Tile4) && TicTacToe[1][1] == "-") {
-            if (TicTacToePlayer == 0) {
-                Tile4.setImage(assets.image`X`)
-                TicTacToePlayer = 1
-                TicTacToe[1][1] = "X"
-            } else {
-                Tile4.setImage(assets.image`O`)
-                TicTacToePlayer = 0
-                TicTacToe[1][1] = "O"
-            }
-        } else if (Cursor.overlapsWith(Tile5) && TicTacToe[1][2] == "-") {
-            if (TicTacToePlayer == 0) {
-                Tile5.setImage(assets.image`X`)
-                TicTacToePlayer = 1
-                TicTacToe[1][2] = "X"
-            } else {
-                Tile5.setImage(assets.image`O`)
-                TicTacToePlayer = 0
-                TicTacToe[1][2] = "O"
-            }
-        } else if (Cursor.overlapsWith(Tile6) && TicTacToe[2][0] == "-") {
-            if (TicTacToePlayer == 0) {
-                Tile6.setImage(assets.image`X`)
-                TicTacToePlayer = 1
-                TicTacToe[2][0] = "X"
-            } else {
-                Tile6.setImage(assets.image`O`)
-                TicTacToePlayer = 0
-                TicTacToe[2][0] = "O"
-            }
-        } else if (Cursor.overlapsWith(Tile7) && TicTacToe[2][1] == "-") {
-            if (TicTacToePlayer == 0) {
-                Tile7.setImage(assets.image`X`)
-                TicTacToePlayer = 1
-                TicTacToe[2][1] = "X"
-            } else {
-                Tile7.setImage(assets.image`O`)
-                TicTacToePlayer = 0
-                TicTacToe[2][1] = "O"
-            }
-        } else if (Cursor.overlapsWith(Tile8) && TicTacToe[2][2] == "-") {
-            if (TicTacToePlayer == 0) {
-                Tile8.setImage(assets.image`X`)
-                TicTacToePlayer = 1
-                TicTacToe[2][2] = "X"
-            } else {
-                Tile8.setImage(assets.image`O`)
-                TicTacToePlayer = 0
-                TicTacToe[2][2] = "O"
-            }
+    if (Cursor.overlapsWith(Tile0) && TicTacToe[0][0] == "-") {
+        mySprite = sprites.create(assets.image`SnowyForest`, SpriteKind.Player)
+        if (TicTacToePlayer == 0) {
+            Tile0.setImage(assets.image`X`)
+            TicTacToePlayer = 1
+            TicTacToe[0][0] = "X"
+        } else {
+            Tile0.setImage(assets.image`O`)
+            TicTacToePlayer = 0
+            TicTacToe[0][0] = "O"
+        }
+    } else if (Cursor.overlapsWith(Tile1) && TicTacToe[0][1] == "-") {
+        if (TicTacToePlayer == 0) {
+            Tile1.setImage(assets.image`X`)
+            TicTacToePlayer = 1
+            TicTacToe[0][1] = "X"
+        } else {
+            Tile1.setImage(assets.image`O`)
+            TicTacToePlayer = 0
+            TicTacToe[0][1] = "O"
+        }
+    } else if (Cursor.overlapsWith(Tile2) && TicTacToe[0][2] == "-") {
+        if (TicTacToePlayer == 0) {
+            Tile2.setImage(assets.image`X`)
+            TicTacToePlayer = 1
+            TicTacToe[0][2] = "X"
+        } else {
+            Tile2.setImage(assets.image`O`)
+            TicTacToePlayer = 0
+            TicTacToe[0][2] = "O"
+        }
+    } else if (Cursor.overlapsWith(Tile3) && TicTacToe[1][0] == "-") {
+        if (TicTacToePlayer == 0) {
+            Tile3.setImage(assets.image`X`)
+            TicTacToePlayer = 1
+            TicTacToe[1][0] = "X"
+        } else {
+            Tile3.setImage(assets.image`O`)
+            TicTacToePlayer = 0
+            TicTacToe[1][0] = "O"
+        }
+    } else if (Cursor.overlapsWith(Tile4) && TicTacToe[1][1] == "-") {
+        if (TicTacToePlayer == 0) {
+            Tile4.setImage(assets.image`X`)
+            TicTacToePlayer = 1
+            TicTacToe[1][1] = "X"
+        } else {
+            Tile4.setImage(assets.image`O`)
+            TicTacToePlayer = 0
+            TicTacToe[1][1] = "O"
+        }
+    } else if (Cursor.overlapsWith(Tile5) && TicTacToe[1][2] == "-") {
+        if (TicTacToePlayer == 0) {
+            Tile5.setImage(assets.image`X`)
+            TicTacToePlayer = 1
+            TicTacToe[1][2] = "X"
+        } else {
+            Tile5.setImage(assets.image`O`)
+            TicTacToePlayer = 0
+            TicTacToe[1][2] = "O"
+        }
+    } else if (Cursor.overlapsWith(Tile6) && TicTacToe[2][0] == "-") {
+        if (TicTacToePlayer == 0) {
+            Tile6.setImage(assets.image`X`)
+            TicTacToePlayer = 1
+            TicTacToe[2][0] = "X"
+        } else {
+            Tile6.setImage(assets.image`O`)
+            TicTacToePlayer = 0
+            TicTacToe[2][0] = "O"
+        }
+    } else if (Cursor.overlapsWith(Tile7) && TicTacToe[2][1] == "-") {
+        if (TicTacToePlayer == 0) {
+            Tile7.setImage(assets.image`X`)
+            TicTacToePlayer = 1
+            TicTacToe[2][1] = "X"
+        } else {
+            Tile7.setImage(assets.image`O`)
+            TicTacToePlayer = 0
+            TicTacToe[2][1] = "O"
+        }
+    } else if (Cursor.overlapsWith(Tile8) && TicTacToe[2][2] == "-") {
+        if (TicTacToePlayer == 0) {
+            Tile8.setImage(assets.image`X`)
+            TicTacToePlayer = 1
+            TicTacToe[2][2] = "X"
+        } else {
+            Tile8.setImage(assets.image`O`)
+            TicTacToePlayer = 0
+            TicTacToe[2][2] = "O"
         }
     }
 })
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
+    animation.runImageAnimation(
+    Nola,
+    [img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        `],
+    500,
+    false
+    )
     if (Nola.overlapsWith(Dream)) {
         sprites.destroy(Dream)
         Board5 = sprites.create(assets.image`Board`, SpriteKind.Projectile)
@@ -153,7 +174,6 @@ let Tile2: Sprite = null
 let Tile1: Sprite = null
 let Tile0: Sprite = null
 let Cursor: Sprite = null
-let Tic = 0
 let Dream: Sprite = null
 let TicTacToe: string[][] = []
 let TicTacToePlayer = 0
@@ -174,7 +194,6 @@ Dream = sprites.create(img`
     8 
     `, SpriteKind.Food)
 Dream.setPosition(0, 0)
-Tic = 0
 forever(function () {
     if (Roger.overlapsWith(Nola)) {
         interactionCount = interactionCount + 1
@@ -212,7 +231,6 @@ forever(function () {
             Dream.setPosition(75, 55)
             pause(500)
             music.stopAllSounds()
-            Tic = 1
             game.showLongText("You made it to the forest! Now it's time to find Roger's dream and bring it home. To use your dreamcatcher net, press B. Be careful, though. Dreams are tricky things, and they're known for challenging people to games like tic tac toe.", DialogLayout.Center)
         }
     }
