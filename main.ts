@@ -167,7 +167,6 @@ controller.B.onEvent(ControllerButtonEvent.Pressed, function on_b_pressed() {
                 Tile1.setImage(assets.image`
                     O
                 `)
-                // 
                 TicTacToePlayer = 0
                 Board[0][1] = "O"
                 PlaceTile(MiniMax(Board))

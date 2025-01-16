@@ -98,7 +98,6 @@ def MiniMax(Board):
                 BestValue = Values[i]
                 Location = i
         return Actions[Location]
-    return [0]
 
 def PlaceTile(Location):
     if Location == [0, 0]:
@@ -157,7 +156,6 @@ def on_b_pressed():
                 Tile1.set_image(assets.image("""
                     O
                 """))
-                #
                 TicTacToePlayer = 0
                 Board[0][1] = "O"
                 PlaceTile(MiniMax(Board))
