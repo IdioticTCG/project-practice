@@ -56,6 +56,9 @@ def CheckOver(Board):
             
     return 0
 
+def MaxValue():
+    pass
+
 def on_b_pressed():
     global mySprite, TicTacToePlayer
     if Tic == 1:
@@ -208,7 +211,7 @@ def on_a_pressed():
         controller.move_sprite(Cursor)
         sprites.destroy(Nola)
         Tile0 = sprites.create(assets.image("""
-            Tile
+            X
         """), SpriteKind.enemy)
         Tile0.set_position(54, 34)
         Tile1 = sprites.create(assets.image("""

@@ -84,6 +84,10 @@ function CheckOver(Board: any[][]): number {
     return 0
 }
 
+function MaxValue() {
+    
+}
+
 controller.B.onEvent(ControllerButtonEvent.Pressed, function on_b_pressed() {
     
     if (Tic == 1) {
@@ -257,7 +261,7 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function on_a_pressed() {
         controller.moveSprite(Cursor)
         sprites.destroy(Nola)
         Tile0 = sprites.create(assets.image`
-            Tile
+            X
         `, SpriteKind.Enemy)
         Tile0.setPosition(54, 34)
         Tile1 = sprites.create(assets.image`
