@@ -2,6 +2,14 @@
 class SpriteKind:
     NPC = SpriteKind.create()
 
+def Actions(Board):
+    Actions = []
+    for i in range(len(Board)):
+        for j in range(len(Board[i])):
+            if Board[i][j] == "-":
+                Actions.append([i, j])
+    return Actions
+
 def on_b_pressed():
     global mySprite, TicTacToePlayer
     if Tic == 1:
