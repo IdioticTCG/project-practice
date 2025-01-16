@@ -72,7 +72,7 @@ def MinValue(Board):
         Value = max(Value, MaxValue(Board))
     return Value
 
-def Minimax(Board):
+def MiniMax(Board):
     Values = []
     Location = 0
     
@@ -98,6 +98,7 @@ def Minimax(Board):
                 BestValue = Values[i]
                 Location = i
         return Actions[Location]
+    return [0]
 
 def PlaceTile(Location):
     if Location == [0, 0]:
@@ -139,7 +140,7 @@ def PlaceTile(Location):
 def on_b_pressed():
     global mySprite, TicTacToePlayer
     if Tic == 1:
-        if Cursor.overlaps_with(Tile0) and TicTacToe[0][0] == "-":
+        if Cursor.overlaps_with(Tile0) and Board[0][0] == "-":
             mySprite = sprites.create(assets.image("""
                 SnowyForest
             """), SpriteKind.player)
@@ -148,65 +149,81 @@ def on_b_pressed():
                     O
                 """))
                 TicTacToePlayer = 0
-                TicTacToe[0][0] = "O"
-                PlaceTile(Minimax(TicTacToe))
+                Board[0][0] = "O"
+                PlaceTile(MiniMax(Board))
                 TicTacToePlayer =  1
-        elif Cursor.overlaps_with(Tile1) and TicTacToe[0][1] == "-":
+        elif Cursor.overlaps_with(Tile1) and Board[0][1] == "-":
             if TicTacToePlayer == 1:
                 Tile1.set_image(assets.image("""
                     O
                 """))
                 TicTacToePlayer = 0
-                TicTacToe[0][1] = "O"
-        elif Cursor.overlaps_with(Tile2) and TicTacToe[0][2] == "-":
+                Board[0][1] = "O"
+                PlaceTile(MiniMax(Board))
+                TicTacToePlayer =  1
+        elif Cursor.overlaps_with(Tile2) and Board[0][2] == "-":
             if TicTacToePlayer == 1:
                 Tile2.set_image(assets.image("""
                     O
                 """))
                 TicTacToePlayer = 0
-                TicTacToe[0][2] = "O"
-        elif Cursor.overlaps_with(Tile3) and TicTacToe[1][0] == "-":
+                Board[0][2] = "O"
+                PlaceTile(MiniMax(Board))
+                TicTacToePlayer =  1
+        elif Cursor.overlaps_with(Tile3) and Board[1][0] == "-":
             if TicTacToePlayer == 1:
                 Tile3.set_image(assets.image("""
                     O
                 """))
                 TicTacToePlayer = 0
-                TicTacToe[1][0] = "O"
-        elif Cursor.overlaps_with(Tile4) and TicTacToe[1][1] == "-":
+                Board[1][0] = "O"
+                PlaceTile(MiniMax(Board))
+                TicTacToePlayer =  1
+        elif Cursor.overlaps_with(Tile4) and Board[1][1] == "-":
             if TicTacToePlayer == 1:
                 Tile4.set_image(assets.image("""
                     O
                 """))
                 TicTacToePlayer = 0
-                TicTacToe[1][1] = "O"
-        elif Cursor.overlaps_with(Tile5) and TicTacToe[1][2] == "-":
+                Board[1][1] = "O"
+                PlaceTile(MiniMax(Board))
+                TicTacToePlayer =  1
+        elif Cursor.overlaps_with(Tile5) and Board[1][2] == "-":
             if TicTacToePlayer == 1:
                 Tile5.set_image(assets.image("""
                     O
                 """))
                 TicTacToePlayer = 0
-                TicTacToe[1][2] = "O"
-        elif Cursor.overlaps_with(Tile6) and TicTacToe[2][0] == "-":
+                Board[1][2] = "O"
+                PlaceTile(MiniMax(Board))
+                TicTacToePlayer =  1
+        elif Cursor.overlaps_with(Tile6) and Board[2][0] == "-":
             if TicTacToePlayer == 1:
                 Tile6.set_image(assets.image("""
                     O
                 """))
                 TicTacToePlayer = 0
-                TicTacToe[2][0] = "O"
-        elif Cursor.overlaps_with(Tile7) and TicTacToe[2][1] == "-":
+                Board[2][0] = "O"
+                PlaceTile(MiniMax(Board))
+                TicTacToePlayer =  1
+        elif Cursor.overlaps_with(Tile7) and Board[2][1] == "-":
             if TicTacToePlayer == 1:
                 Tile7.set_image(assets.image("""
                     O
                 """))
                 TicTacToePlayer = 0
-                TicTacToe[2][1] = "O"
-        elif Cursor.overlaps_with(Tile8) and TicTacToe[2][2] == "-":
+                Board[2][1] = "O"
+                PlaceTile(MiniMax(Board))
+                TicTacToePlayer =  1
+        elif Cursor.overlaps_with(Tile8) and Board[2][2] == "-":
             if TicTacToePlayer == 1:
                 Tile8.set_image(assets.image("""
                     O
                 """))
                 TicTacToePlayer = 0
-                TicTacToe[2][2] = "O"
+                Board[2][2] = "O"
+                PlaceTile(MiniMax(Board))
+                TicTacToePlayer =  1
 controller.B.on_event(ControllerButtonEvent.PRESSED, on_b_pressed)
 
 def on_a_pressed():
@@ -300,7 +317,7 @@ Tile0: Sprite = None
 Cursor: Sprite = None
 Tic = 0
 Dream: Sprite = None
-TicTacToe: List[List[str]] = []
+Board: List[List[str]] = []
 TicTacToePlayer = 0
 Nola: Sprite = None
 scene.set_background_image(assets.image("""
@@ -317,7 +334,7 @@ Roger.set_position(136, 91)
 controller.move_sprite(Nola, 50, 50)
 Nola.z = 1
 TicTacToePlayer = 0
-TicTacToe = [["-", "-", "-"], ["-", "-", "-"], ["-", "-", "-"]]
+Board = [["-", "-", "-"], ["-", "-", "-"], ["-", "-", "-"]]
 dialogueBank = ["Do you have my dream yet? Yes?  Thank you, mouse man!",
     "DIET PEPSI! You've fetched me my dream! In return, I will grant you three wishes. Just kidding, heh heh.",
     "Without dreams, this meager helping of life is nought but an all-consuming void of empty and ebony. My heart yearns for salvation, I hunger for dreams. Thank you for finding me my reverie, jerk."]

@@ -148,7 +148,7 @@ function PlaceTile(Location: any) {
 controller.B.onEvent(ControllerButtonEvent.Pressed, function on_b_pressed() {
     
     if (Tic == 1) {
-        if (Cursor.overlapsWith(Tile0) && TicTacToe[0][0] == "-") {
+        if (Cursor.overlapsWith(Tile0) && Board[0][0] == "-") {
             mySprite = sprites.create(assets.image`
                 SnowyForest
             `, SpriteKind.Player)
@@ -157,81 +157,97 @@ controller.B.onEvent(ControllerButtonEvent.Pressed, function on_b_pressed() {
                     O
                 `)
                 TicTacToePlayer = 0
-                TicTacToe[0][0] = "O"
-                PlaceTile(Minimax(TicTacToe))
+                Board[0][0] = "O"
+                PlaceTile(MiniMax(Board))
                 TicTacToePlayer = 1
             }
             
-        } else if (Cursor.overlapsWith(Tile1) && TicTacToe[0][1] == "-") {
+        } else if (Cursor.overlapsWith(Tile1) && Board[0][1] == "-") {
             if (TicTacToePlayer == 1) {
                 Tile1.setImage(assets.image`
                     O
                 `)
                 TicTacToePlayer = 0
-                TicTacToe[0][1] = "O"
+                Board[0][1] = "O"
+                PlaceTile(MiniMax(Board))
+                TicTacToePlayer = 1
             }
             
-        } else if (Cursor.overlapsWith(Tile2) && TicTacToe[0][2] == "-") {
+        } else if (Cursor.overlapsWith(Tile2) && Board[0][2] == "-") {
             if (TicTacToePlayer == 1) {
                 Tile2.setImage(assets.image`
                     O
                 `)
                 TicTacToePlayer = 0
-                TicTacToe[0][2] = "O"
+                Board[0][2] = "O"
+                PlaceTile(MiniMax(Board))
+                TicTacToePlayer = 1
             }
             
-        } else if (Cursor.overlapsWith(Tile3) && TicTacToe[1][0] == "-") {
+        } else if (Cursor.overlapsWith(Tile3) && Board[1][0] == "-") {
             if (TicTacToePlayer == 1) {
                 Tile3.setImage(assets.image`
                     O
                 `)
                 TicTacToePlayer = 0
-                TicTacToe[1][0] = "O"
+                Board[1][0] = "O"
+                PlaceTile(MiniMax(Board))
+                TicTacToePlayer = 1
             }
             
-        } else if (Cursor.overlapsWith(Tile4) && TicTacToe[1][1] == "-") {
+        } else if (Cursor.overlapsWith(Tile4) && Board[1][1] == "-") {
             if (TicTacToePlayer == 1) {
                 Tile4.setImage(assets.image`
                     O
                 `)
                 TicTacToePlayer = 0
-                TicTacToe[1][1] = "O"
+                Board[1][1] = "O"
+                PlaceTile(MiniMax(Board))
+                TicTacToePlayer = 1
             }
             
-        } else if (Cursor.overlapsWith(Tile5) && TicTacToe[1][2] == "-") {
+        } else if (Cursor.overlapsWith(Tile5) && Board[1][2] == "-") {
             if (TicTacToePlayer == 1) {
                 Tile5.setImage(assets.image`
                     O
                 `)
                 TicTacToePlayer = 0
-                TicTacToe[1][2] = "O"
+                Board[1][2] = "O"
+                PlaceTile(MiniMax(Board))
+                TicTacToePlayer = 1
             }
             
-        } else if (Cursor.overlapsWith(Tile6) && TicTacToe[2][0] == "-") {
+        } else if (Cursor.overlapsWith(Tile6) && Board[2][0] == "-") {
             if (TicTacToePlayer == 1) {
                 Tile6.setImage(assets.image`
                     O
                 `)
                 TicTacToePlayer = 0
-                TicTacToe[2][0] = "O"
+                Board[2][0] = "O"
+                PlaceTile(MiniMax(Board))
+                TicTacToePlayer = 1
             }
             
-        } else if (Cursor.overlapsWith(Tile7) && TicTacToe[2][1] == "-") {
+        } else if (Cursor.overlapsWith(Tile7) && Board[2][1] == "-") {
             if (TicTacToePlayer == 1) {
                 Tile7.setImage(assets.image`
                     O
                 `)
                 TicTacToePlayer = 0
-                TicTacToe[2][1] = "O"
+                Board[2][1] = "O"
+                PlaceTile(MiniMax(Board))
+                TicTacToePlayer = 1
             }
             
-        } else if (Cursor.overlapsWith(Tile8) && TicTacToe[2][2] == "-") {
+        } else if (Cursor.overlapsWith(Tile8) && Board[2][2] == "-") {
             if (TicTacToePlayer == 1) {
                 Tile8.setImage(assets.image`
                     O
                 `)
                 TicTacToePlayer = 0
-                TicTacToe[2][2] = "O"
+                Board[2][2] = "O"
+                PlaceTile(MiniMax(Board))
+                TicTacToePlayer = 1
             }
             
         }
@@ -329,7 +345,7 @@ let Tile0 : Sprite = null
 let Cursor : Sprite = null
 let Tic = 0
 let Dream : Sprite = null
-let TicTacToe : string[][] = []
+let Board : string[][] = []
 let TicTacToePlayer = 0
 let Nola : Sprite = null
 scene.setBackgroundImage(assets.image`
@@ -346,7 +362,7 @@ Roger.setPosition(136, 91)
 controller.moveSprite(Nola, 50, 50)
 Nola.z = 1
 TicTacToePlayer = 0
-TicTacToe = [["-", "-", "-"], ["-", "-", "-"], ["-", "-", "-"]]
+Board = [["-", "-", "-"], ["-", "-", "-"], ["-", "-", "-"]]
 let dialogueBank = ["Do you have my dream yet? Yes?  Thank you, mouse man!", "DIET PEPSI! You've fetched me my dream! In return, I will grant you three wishes. Just kidding, heh heh.", "Without dreams, this meager helping of life is nought but an all-consuming void of empty and ebony. My heart yearns for salvation, I hunger for dreams. Thank you for finding me my reverie, jerk."]
 music.setVolume(20)
 music.play(music.createSong(assets.song`
