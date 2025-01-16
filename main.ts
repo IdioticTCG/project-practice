@@ -98,7 +98,20 @@ controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
     }
 })
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
+    animation.runImageAnimation(
+    Nola,
+    assets.animation`action0`,
+    120,
+    false
+    )
     if (Nola.overlapsWith(Dream)) {
+        animation.runImageAnimation(
+        Nola,
+        assets.animation`action0`,
+        120,
+        false
+        )
+        pause(1080)
         sprites.destroy(Dream)
         Board5 = sprites.create(assets.image`Board`, SpriteKind.Projectile)
         Board5.setScale(3.5, ScaleAnchor.Middle)
