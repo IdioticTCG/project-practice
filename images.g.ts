@@ -721,7 +721,7 @@ a2a22ccbcbaaaaaaaaaaaaacacbbcbccaaaaaaaaacccbccaaaaaaaaaaaaaaaacccccaaaaaaaaaaaa
 . . . . . . . b d b . . . . . . 
 . . . . . . . . . . . . . . . . 
 `];
-            case "action":
+            case "action0":
             case "anim2":return [img`
 ....................................................................................................
 ....................................................................................................
