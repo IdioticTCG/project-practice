@@ -6,15 +6,13 @@ controller.B.onEvent(ControllerButtonEvent.Pressed, function on_b_pressed() {
     
     if (Tic == 1) {
         if (Cursor.overlapsWith(Tile0) && Board3[0][0] == "-") {
-            mySprite = sprites.create(assets.image`
-                SnowyForest
-            `, SpriteKind.Player)
             if (TicTacToePlayer == 1) {
                 Tile0.setImage(assets.image`
                     O
                 `)
                 TicTacToePlayer = 0
                 Board3[0][0] = "O"
+                PlaceTile(MiniMax(Board3))
                 TicTacToePlayer = 1
             }
             
@@ -25,6 +23,7 @@ controller.B.onEvent(ControllerButtonEvent.Pressed, function on_b_pressed() {
                 `)
                 TicTacToePlayer = 0
                 Board3[0][1] = "O"
+                PlaceTile(MiniMax(Board3))
                 TicTacToePlayer = 1
             }
             
@@ -35,6 +34,7 @@ controller.B.onEvent(ControllerButtonEvent.Pressed, function on_b_pressed() {
                 `)
                 TicTacToePlayer = 0
                 Board3[0][2] = "O"
+                PlaceTile(MiniMax(Board3))
                 TicTacToePlayer = 1
             }
             
@@ -45,6 +45,7 @@ controller.B.onEvent(ControllerButtonEvent.Pressed, function on_b_pressed() {
                 `)
                 TicTacToePlayer = 0
                 Board3[1][0] = "O"
+                PlaceTile(MiniMax(Board3))
                 TicTacToePlayer = 1
             }
             
@@ -55,6 +56,7 @@ controller.B.onEvent(ControllerButtonEvent.Pressed, function on_b_pressed() {
                 `)
                 TicTacToePlayer = 0
                 Board3[1][1] = "O"
+                PlaceTile(MiniMax(Board3))
                 TicTacToePlayer = 1
             }
             
@@ -65,6 +67,7 @@ controller.B.onEvent(ControllerButtonEvent.Pressed, function on_b_pressed() {
                 `)
                 TicTacToePlayer = 0
                 Board3[1][2] = "O"
+                PlaceTile(MiniMax(Board3))
                 TicTacToePlayer = 1
             }
             
@@ -75,6 +78,7 @@ controller.B.onEvent(ControllerButtonEvent.Pressed, function on_b_pressed() {
                 `)
                 TicTacToePlayer = 0
                 Board3[2][0] = "O"
+                PlaceTile(MiniMax(Board3))
                 TicTacToePlayer = 1
             }
             
@@ -85,6 +89,7 @@ controller.B.onEvent(ControllerButtonEvent.Pressed, function on_b_pressed() {
                 `)
                 TicTacToePlayer = 0
                 Board3[2][1] = "O"
+                PlaceTile(MiniMax(Board3))
                 TicTacToePlayer = 1
             }
             
@@ -95,6 +100,7 @@ controller.B.onEvent(ControllerButtonEvent.Pressed, function on_b_pressed() {
                 `)
                 TicTacToePlayer = 0
                 Board3[2][2] = "O"
+                PlaceTile(MiniMax(Board3))
                 TicTacToePlayer = 1
             }
             
@@ -180,7 +186,6 @@ function CheckOver(Board2: string[][]): number {
 }
 
 controller.A.onEvent(ControllerButtonEvent.Pressed, function on_a_pressed() {
-    let s: any;
     
     animation.runImageAnimation(Nola, assets.animation`
         action0
@@ -190,7 +195,6 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function on_a_pressed() {
             action0
         `, 120, false)
         pause(1080)
-        s = MiniMax([["as", "as"], ["as", "-"]])
         sprites.destroy(Dream)
         Board5 = sprites.create(assets.image`
             Board
@@ -264,7 +268,7 @@ let Cursor : Sprite = null
 let Tic = 0
 let Dream : Sprite = null
 let Board3 : string[][] = []
-let TicTacToePlayer = 0
+let TicTacToePlayer = 1
 let Nola : Sprite = null
 let Tile0 : Sprite = null
 let Tile1 : Sprite = null
@@ -275,6 +279,19 @@ let Tile5 : Sprite = null
 let Tile6 : Sprite = null
 let Tile7 : Sprite = null
 function Actions(Board: string[][]): any[] {
+    let Acts = []
+    for (let i = 0; i < Board.length; i++) {
+        for (let j = 0; j < Board[i].length; j++) {
+            if (Board[i][j] == "-") {
+                Acts.push([i, j])
+            }
+            
+        }
+    }
+    return Acts
+}
+
+function Test(Board: string[][]): any[] {
     let Acts = []
     for (let i = 0; i < Board.length; i++) {
         for (let j = 0; j < Board[i].length; j++) {
@@ -329,65 +346,77 @@ function MiniMax(Board: string[][]) {
     return Acts[Location]
 }
 
-function Result(Board4: string[][], Action: number[], Player: string): string[][] {
-    let CopyBoard = Board4.slice(0)
+function Result(Board4: string[][], Action: number[], Player: string): any[] {
+    let CopyBoard = []
+    for (let row of Board4) {
+        CopyBoard.push(row.slice(0))
+    }
     CopyBoard[Action[0]][Action[1]] = Player
     return CopyBoard
 }
 
-function PlaceTile(Location2: any) {
-    if (Location2 == [0, 0]) {
+function PlaceTile(Location2: any[]) {
+    if (Location2[0] == [0, 0][0] && Location2[1] == [0, 0][1]) {
         Tile0.setImage(assets.image`
             X
         `)
+        Board3[0][0] = "X"
     }
     
-    if (Location2 == [0, 1]) {
+    if (Location2[0] == [0, 1][0] && Location2[1] == [0, 1][1]) {
         Tile1.setImage(assets.image`
             X
         `)
+        Board3[0][1] = "X"
     }
     
-    if (Location2 == [0, 2]) {
+    if (Location2[0] == [0, 2][0] && Location2[1] == [0, 2][1]) {
         Tile2.setImage(assets.image`
             X
         `)
+        Board3[0][2] = "X"
     }
     
-    if (Location2 == [1, 0]) {
+    if (Location2 == Location2[0] && Location2[0] == [1, 0][0] && Location2[1] == [1, 0][1]) {
         Tile3.setImage(assets.image`
             X
         `)
+        Board3[1][0] = "X"
     }
     
-    if (Location2 == [1, 1]) {
+    if (Location2 == Location2[0] && Location2[0] == [1, 1][0] && Location2[1] == [1, 1][1]) {
         Tile4.setImage(assets.image`
             X
         `)
+        Board3[1][1] = "X"
     }
     
-    if (Location2 == [1, 2]) {
-        Tile4.setImage(assets.image`
-            X
-        `)
-    }
-    
-    if (Location2 == [2, 0]) {
+    if (Location2[0] == [1, 2][0] && Location2[1] == [1, 2][1]) {
         Tile5.setImage(assets.image`
             X
         `)
+        Board3[1][2] = "X"
     }
     
-    if (Location2 == [2, 1]) {
+    if (Location2[0] == [2, 0][0] && Location2[1] == [2, 0][1]) {
         Tile6.setImage(assets.image`
             X
         `)
+        Board3[2][0] = "X"
     }
     
-    if (Location2 == [2, 2]) {
+    if (Location2[0] == [2, 1][0] && Location2[1] == [2, 1][1]) {
         Tile7.setImage(assets.image`
             X
         `)
+        Board3[2][1] = "X"
+    }
+    
+    if (Location2[0] == [2, 2][0] && Location2[1] == [2, 2][1]) {
+        Tile8.setImage(assets.image`
+            X
+        `)
+        Board3[2][2] = "X"
     }
     
 }
@@ -405,8 +434,8 @@ Nola.setPosition(28, 91)
 Roger.setPosition(136, 91)
 controller.moveSprite(Nola, 50, 50)
 Nola.z = 1
-TicTacToePlayer = 0
-Board3 = [["-", "-", "-"], ["-", "-", "-"], ["-", "-", "-"]]
+TicTacToePlayer = 1
+Board3 = [["X", "-", "-"], ["-", "-", "-"], ["-", "-", "-"]]
 let dialogueBank = ["Do you have my dream yet? Yes?  Thank you, mouse man!", "DIET PEPSI! You've fetched me my dream! In return, I will grant you three wishes. Just kidding, heh heh.", "Without dreams, this meager helping of life is nought but an all-consuming void of empty and ebony. My heart yearns for salvation, I hunger for dreams. Thank you for finding me my reverie, jerk."]
 Dream = sprites.create(img`
     8
@@ -419,6 +448,7 @@ music.play(music.createSong(assets.song`
     `), music.PlaybackMode.LoopingInBackground)
 forever(function on_forever() {
     
+    Nola.setPosition(Nola.x, 91)
     if (Roger.overlapsWith(Nola)) {
         interactionCount = interactionCount + 1
         if (interactionCount == 1) {
