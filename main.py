@@ -157,6 +157,7 @@ def on_b_pressed():
                 Tile1.set_image(assets.image("""
                     O
                 """))
+                #
                 TicTacToePlayer = 0
                 Board[0][1] = "O"
                 PlaceTile(MiniMax(Board))
