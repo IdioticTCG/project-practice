@@ -8,6 +8,82 @@ function result(Board: any, Action: any, Player: any) {
     return CopyBoard
 }
 
+function CheckOver(Board: any[][]): number {
+    if (Board[0][0] == "X" && Board[0][1] == "X" && Board[0][2] == "X") {
+        return 1
+    }
+    
+    if (Board[1][0] == "X" && Board[1][1] == "X" && Board[1][2] == "X") {
+        return 1
+    }
+    
+    if (Board[2][0] == "X" && Board[2][1] == "X" && Board[2][2] == "X") {
+        return 1
+    }
+    
+    if (Board[0][0] == "X" && Board[0][0] == "X" && Board[2][0] == "X") {
+        return 1
+    }
+    
+    if (Board[0][1] == "X" && Board[1][1] == "X" && Board[2][1] == "X") {
+        return 1
+    }
+    
+    if (Board[0][2] == "X" && Board[1][2] == "X" && Board[2][2] == "X") {
+        return 1
+    }
+    
+    if (Board[0][2] == "X" && Board[1][1] == "X" && Board[2][0] == "X") {
+        return 1
+    }
+    
+    if (Board[0][0] == "X" && Board[1][1] == "X" && Board[2][2] == "X") {
+        return 1
+    }
+    
+    if (Board[0][0] == "O" && Board[0][1] == "O" && Board[0][2] == "O") {
+        return -1
+    }
+    
+    if (Board[1][0] == "O" && Board[1][1] == "O" && Board[1][2] == "O") {
+        return -1
+    }
+    
+    if (Board[2][0] == "O" && Board[2][1] == "O" && Board[2][2] == "O") {
+        return -1
+    }
+    
+    if (Board[0][0] == "O" && Board[0][0] == "O" && Board[2][0] == "O") {
+        return -1
+    }
+    
+    if (Board[0][1] == "O" && Board[1][1] == "O" && Board[2][1] == "O") {
+        return -1
+    }
+    
+    if (Board[0][2] == "O" && Board[1][2] == "O" && Board[2][2] == "O") {
+        return -1
+    }
+    
+    if (Board[0][2] == "O" && Board[1][1] == "O" && Board[2][0] == "O") {
+        return -1
+    }
+    
+    if (Board[0][0] == "O" && Board[1][1] == "O" && Board[2][2] == "O") {
+        return -1
+    }
+    
+    for (let row of Board) {
+        for (let elem of row) {
+            if (elem == "-") {
+                return 2
+            }
+            
+        }
+    }
+    return 0
+}
+
 controller.B.onEvent(ControllerButtonEvent.Pressed, function on_b_pressed() {
     
     if (Tic == 1) {

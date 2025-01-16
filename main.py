@@ -15,6 +15,47 @@ def result(Board, Action, Player):
     CopyBoard[Action[0]][Action[1]] = Player
     return CopyBoard
 
+def CheckOver(Board):
+    if Board[0][0] == "X" and Board[0][1] == "X" and Board[0][2] == "X":
+        return 1
+    if Board[1][0] == "X" and Board[1][1] == "X" and Board[1][2] == "X":
+        return 1
+    if Board[2][0] == "X" and Board[2][1] == "X" and Board[2][2] == "X":
+        return 1
+    if Board[0][0] == "X" and Board[0][0] == "X" and Board[2][0] == "X":
+        return 1
+    if Board[0][1] == "X" and Board[1][1] == "X" and Board[2][1] == "X":
+        return 1
+    if Board[0][2] == "X" and Board[1][2] == "X" and Board[2][2] == "X":
+        return 1
+    if Board[0][2] == "X" and Board[1][1] == "X" and Board[2][0] == "X":
+        return 1
+    if Board[0][0] == "X" and Board[1][1] == "X" and Board[2][2] == "X":
+        return 1
+    if Board[0][0] == "O" and Board[0][1] == "O" and Board[0][2] == "O":
+        return -1
+    if Board[1][0] == "O" and Board[1][1] == "O" and Board[1][2] == "O":
+        return -1
+    if Board[2][0] == "O" and Board[2][1] == "O" and Board[2][2] == "O":
+        return -1
+    if Board[0][0] == "O" and Board[0][0] == "O" and Board[2][0] == "O":
+        return -1
+    if Board[0][1] == "O" and Board[1][1] == "O" and Board[2][1] == "O":
+        return -1
+    if Board[0][2] == "O" and Board[1][2] == "O" and Board[2][2] == "O":
+        return -1
+    if Board[0][2] == "O" and Board[1][1] == "O" and Board[2][0] == "O":
+        return -1
+    if Board[0][0] == "O" and Board[1][1] == "O" and Board[2][2] == "O":
+        return -1
+    
+    for row in Board:
+        for elem in row:
+            if elem == "-":
+                return 2
+            
+    return 0
+
 def on_b_pressed():
     global mySprite, TicTacToePlayer
     if Tic == 1:
