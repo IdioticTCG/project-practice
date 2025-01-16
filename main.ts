@@ -95,13 +95,7 @@ controller.B.onEvent(ControllerButtonEvent.Pressed, function on_b_pressed() {
             mySprite = sprites.create(assets.image`
                 SnowyForest
             `, SpriteKind.Player)
-            if (TicTacToePlayer == 0) {
-                Tile0.setImage(assets.image`
-                    X
-                `)
-                TicTacToePlayer = 1
-                TicTacToe[0][0] = "X"
-            } else {
+            if (TicTacToePlayer == 1) {
                 Tile0.setImage(assets.image`
                     O
                 `)
@@ -110,13 +104,7 @@ controller.B.onEvent(ControllerButtonEvent.Pressed, function on_b_pressed() {
             }
             
         } else if (Cursor.overlapsWith(Tile1) && TicTacToe[0][1] == "-") {
-            if (TicTacToePlayer == 0) {
-                Tile1.setImage(assets.image`
-                    X
-                `)
-                TicTacToePlayer = 1
-                TicTacToe[0][1] = "X"
-            } else {
+            if (TicTacToePlayer == 1) {
                 Tile1.setImage(assets.image`
                     O
                 `)
@@ -125,13 +113,7 @@ controller.B.onEvent(ControllerButtonEvent.Pressed, function on_b_pressed() {
             }
             
         } else if (Cursor.overlapsWith(Tile2) && TicTacToe[0][2] == "-") {
-            if (TicTacToePlayer == 0) {
-                Tile2.setImage(assets.image`
-                    X
-                `)
-                TicTacToePlayer = 1
-                TicTacToe[0][2] = "X"
-            } else {
+            if (TicTacToePlayer == 1) {
                 Tile2.setImage(assets.image`
                     O
                 `)
@@ -140,13 +122,7 @@ controller.B.onEvent(ControllerButtonEvent.Pressed, function on_b_pressed() {
             }
             
         } else if (Cursor.overlapsWith(Tile3) && TicTacToe[1][0] == "-") {
-            if (TicTacToePlayer == 0) {
-                Tile3.setImage(assets.image`
-                    X
-                `)
-                TicTacToePlayer = 1
-                TicTacToe[1][0] = "X"
-            } else {
+            if (TicTacToePlayer == 1) {
                 Tile3.setImage(assets.image`
                     O
                 `)
@@ -155,13 +131,7 @@ controller.B.onEvent(ControllerButtonEvent.Pressed, function on_b_pressed() {
             }
             
         } else if (Cursor.overlapsWith(Tile4) && TicTacToe[1][1] == "-") {
-            if (TicTacToePlayer == 0) {
-                Tile4.setImage(assets.image`
-                    X
-                `)
-                TicTacToePlayer = 1
-                TicTacToe[1][1] = "X"
-            } else {
+            if (TicTacToePlayer == 1) {
                 Tile4.setImage(assets.image`
                     O
                 `)
@@ -170,13 +140,7 @@ controller.B.onEvent(ControllerButtonEvent.Pressed, function on_b_pressed() {
             }
             
         } else if (Cursor.overlapsWith(Tile5) && TicTacToe[1][2] == "-") {
-            if (TicTacToePlayer == 0) {
-                Tile5.setImage(assets.image`
-                    X
-                `)
-                TicTacToePlayer = 1
-                TicTacToe[1][2] = "X"
-            } else {
+            if (TicTacToePlayer == 1) {
                 Tile5.setImage(assets.image`
                     O
                 `)
@@ -185,13 +149,7 @@ controller.B.onEvent(ControllerButtonEvent.Pressed, function on_b_pressed() {
             }
             
         } else if (Cursor.overlapsWith(Tile6) && TicTacToe[2][0] == "-") {
-            if (TicTacToePlayer == 0) {
-                Tile6.setImage(assets.image`
-                    X
-                `)
-                TicTacToePlayer = 1
-                TicTacToe[2][0] = "X"
-            } else {
+            if (TicTacToePlayer == 1) {
                 Tile6.setImage(assets.image`
                     O
                 `)
@@ -200,13 +158,7 @@ controller.B.onEvent(ControllerButtonEvent.Pressed, function on_b_pressed() {
             }
             
         } else if (Cursor.overlapsWith(Tile7) && TicTacToe[2][1] == "-") {
-            if (TicTacToePlayer == 0) {
-                Tile7.setImage(assets.image`
-                    X
-                `)
-                TicTacToePlayer = 1
-                TicTacToe[2][1] = "X"
-            } else {
+            if (TicTacToePlayer == 1) {
                 Tile7.setImage(assets.image`
                     O
                 `)
@@ -215,13 +167,7 @@ controller.B.onEvent(ControllerButtonEvent.Pressed, function on_b_pressed() {
             }
             
         } else if (Cursor.overlapsWith(Tile8) && TicTacToe[2][2] == "-") {
-            if (TicTacToePlayer == 0) {
-                Tile8.setImage(assets.image`
-                    X
-                `)
-                TicTacToePlayer = 1
-                TicTacToe[2][2] = "X"
-            } else {
+            if (TicTacToePlayer == 1) {
                 Tile8.setImage(assets.image`
                     O
                 `)

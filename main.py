@@ -107,117 +107,63 @@ def on_b_pressed():
             mySprite = sprites.create(assets.image("""
                 SnowyForest
             """), SpriteKind.player)
-            if TicTacToePlayer == 0:
-                Tile0.set_image(assets.image("""
-                    X
-                """))
-                TicTacToePlayer = 1
-                TicTacToe[0][0] = "X"
-            else:
+            if TicTacToePlayer == 1:
                 Tile0.set_image(assets.image("""
                     O
                 """))
                 TicTacToePlayer = 0
                 TicTacToe[0][0] = "O"
         elif Cursor.overlaps_with(Tile1) and TicTacToe[0][1] == "-":
-            if TicTacToePlayer == 0:
-                Tile1.set_image(assets.image("""
-                    X
-                """))
-                TicTacToePlayer = 1
-                TicTacToe[0][1] = "X"
-            else:
+            if TicTacToePlayer == 1:
                 Tile1.set_image(assets.image("""
                     O
                 """))
                 TicTacToePlayer = 0
                 TicTacToe[0][1] = "O"
         elif Cursor.overlaps_with(Tile2) and TicTacToe[0][2] == "-":
-            if TicTacToePlayer == 0:
-                Tile2.set_image(assets.image("""
-                    X
-                """))
-                TicTacToePlayer = 1
-                TicTacToe[0][2] = "X"
-            else:
+            if TicTacToePlayer == 1:
                 Tile2.set_image(assets.image("""
                     O
                 """))
                 TicTacToePlayer = 0
                 TicTacToe[0][2] = "O"
         elif Cursor.overlaps_with(Tile3) and TicTacToe[1][0] == "-":
-            if TicTacToePlayer == 0:
-                Tile3.set_image(assets.image("""
-                    X
-                """))
-                TicTacToePlayer = 1
-                TicTacToe[1][0] = "X"
-            else:
+            if TicTacToePlayer == 1:
                 Tile3.set_image(assets.image("""
                     O
                 """))
                 TicTacToePlayer = 0
                 TicTacToe[1][0] = "O"
         elif Cursor.overlaps_with(Tile4) and TicTacToe[1][1] == "-":
-            if TicTacToePlayer == 0:
-                Tile4.set_image(assets.image("""
-                    X
-                """))
-                TicTacToePlayer = 1
-                TicTacToe[1][1] = "X"
-            else:
+            if TicTacToePlayer == 1:
                 Tile4.set_image(assets.image("""
                     O
                 """))
                 TicTacToePlayer = 0
                 TicTacToe[1][1] = "O"
         elif Cursor.overlaps_with(Tile5) and TicTacToe[1][2] == "-":
-            if TicTacToePlayer == 0:
-                Tile5.set_image(assets.image("""
-                    X
-                """))
-                TicTacToePlayer = 1
-                TicTacToe[1][2] = "X"
-            else:
+            if TicTacToePlayer == 1:
                 Tile5.set_image(assets.image("""
                     O
                 """))
                 TicTacToePlayer = 0
                 TicTacToe[1][2] = "O"
         elif Cursor.overlaps_with(Tile6) and TicTacToe[2][0] == "-":
-            if TicTacToePlayer == 0:
-                Tile6.set_image(assets.image("""
-                    X
-                """))
-                TicTacToePlayer = 1
-                TicTacToe[2][0] = "X"
-            else:
+            if TicTacToePlayer == 1:
                 Tile6.set_image(assets.image("""
                     O
                 """))
                 TicTacToePlayer = 0
                 TicTacToe[2][0] = "O"
         elif Cursor.overlaps_with(Tile7) and TicTacToe[2][1] == "-":
-            if TicTacToePlayer == 0:
-                Tile7.set_image(assets.image("""
-                    X
-                """))
-                TicTacToePlayer = 1
-                TicTacToe[2][1] = "X"
-            else:
+            if TicTacToePlayer == 1:
                 Tile7.set_image(assets.image("""
                     O
                 """))
                 TicTacToePlayer = 0
                 TicTacToe[2][1] = "O"
         elif Cursor.overlaps_with(Tile8) and TicTacToe[2][2] == "-":
-            if TicTacToePlayer == 0:
-                Tile8.set_image(assets.image("""
-                    X
-                """))
-                TicTacToePlayer = 1
-                TicTacToe[2][2] = "X"
-            else:
+            if TicTacToePlayer == 1:
                 Tile8.set_image(assets.image("""
                     O
                 """))
