@@ -88,6 +88,63 @@ function CheckOver(Board: any[][]): number {
 
 
 
+function PlaceTile(Location: any) {
+    if (Location == [0, 0]) {
+        Tile0.setImage(assets.image`
+            X
+        `)
+    }
+    
+    if (Location == [0, 1]) {
+        Tile1.setImage(assets.image`
+            X
+        `)
+    }
+    
+    if (Location == [0, 2]) {
+        Tile2.setImage(assets.image`
+            X
+        `)
+    }
+    
+    if (Location == [1, 0]) {
+        Tile3.setImage(assets.image`
+            X
+        `)
+    }
+    
+    if (Location == [1, 1]) {
+        Tile4.setImage(assets.image`
+            X
+        `)
+    }
+    
+    if (Location == [1, 2]) {
+        Tile4.setImage(assets.image`
+             X
+        `)
+    }
+    
+    if (Location == [2, 0]) {
+        Tile5.setImage(assets.image`
+            X
+        `)
+    }
+    
+    if (Location == [2, 1]) {
+        Tile6.setImage(assets.image`
+            X
+        `)
+    }
+    
+    if (Location == [2, 2]) {
+        Tile7.setImage(assets.image`
+            X
+        `)
+    }
+    
+}
+
 controller.B.onEvent(ControllerButtonEvent.Pressed, function on_b_pressed() {
     
     if (Tic == 1) {
@@ -101,6 +158,8 @@ controller.B.onEvent(ControllerButtonEvent.Pressed, function on_b_pressed() {
                 `)
                 TicTacToePlayer = 0
                 TicTacToe[0][0] = "O"
+                PlaceTile(Minimax(TicTacToe))
+                TicTacToePlayer = 1
             }
             
         } else if (Cursor.overlapsWith(Tile1) && TicTacToe[0][1] == "-") {

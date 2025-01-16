@@ -99,7 +99,43 @@ def Minimax(Board):
                 Location = i
         return Actions[Location]
 
-
+def PlaceTile(Location):
+    if Location == [0, 0]:
+        Tile0.set_image(assets.image("""
+            X
+        """))
+    if Location == [0, 1]:
+        Tile1.set_image(assets.image("""
+            X
+        """))
+    if Location == [0, 2]:
+        Tile2.set_image(assets.image("""
+            X
+        """))
+    if Location == [1, 0]:
+        Tile3.set_image(assets.image("""
+            X
+        """))
+    if Location == [1, 1]:
+        Tile4.set_image(assets.image("""
+            X
+        """))
+    if Location == [1, 2]:
+        Tile4.set_image(assets.image("""
+             X
+        """))
+    if Location == [2, 0]:
+        Tile5.set_image(assets.image("""
+            X
+        """))
+    if Location == [2, 1]:
+        Tile6.set_image(assets.image("""
+            X
+        """))
+    if Location == [2, 2]:
+        Tile7.set_image(assets.image("""
+            X
+        """))
 def on_b_pressed():
     global mySprite, TicTacToePlayer
     if Tic == 1:
@@ -113,6 +149,8 @@ def on_b_pressed():
                 """))
                 TicTacToePlayer = 0
                 TicTacToe[0][0] = "O"
+                PlaceTile(Minimax(TicTacToe))
+                TicTacToePlayer =  1
         elif Cursor.overlaps_with(Tile1) and TicTacToe[0][1] == "-":
             if TicTacToePlayer == 1:
                 Tile1.set_image(assets.image("""
