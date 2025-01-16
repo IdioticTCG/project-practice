@@ -2,6 +2,7 @@ namespace SpriteKind {
     export const NPC = SpriteKind.create()
 }
 
+
 function result(Board: any, Action: any, Player: any) {
     let CopyBoard = Board.slice(0)
     CopyBoard[Action[0]][Action[1]] = Player
@@ -84,8 +85,12 @@ function CheckOver(Board: any[][]): number {
     return 0
 }
 
-function MaxValue() {
-    
+
+
+function Minimax(Board: any) {
+    let Values = []
+    let Location = 0
+    let Actionscdcfgh = Actions(Board)
 }
 
 controller.B.onEvent(ControllerButtonEvent.Pressed, function on_b_pressed() {

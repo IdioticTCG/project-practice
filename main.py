@@ -56,8 +56,29 @@ def CheckOver(Board):
             
     return 0
 
-def MaxValue():
-    pass
+def MaxValue(Board):
+    if CheckOver(Board) != 2:
+        return CheckOver(Board)
+    Value = -2
+    for Action in Actions(Board):
+        Value = min(Value, MinValue(Board))
+    return Value
+
+def MinValue(Board):
+    if CheckOver(Board) != 2:
+        return CheckOver(Board)
+    Value = 2
+    for Action in Actions(Board):
+        Value = max(Value, MaxValue(Board))
+    return Value
+
+def Minimax(Board):
+    Values = []
+    Location = 0
+    Actionscdcfgh = Actions(Board)
+    
+
+
 
 def on_b_pressed():
     global mySprite, TicTacToePlayer
