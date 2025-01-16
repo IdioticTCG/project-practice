@@ -10,6 +10,11 @@ def Actions(Board):
                 Actions.append([i, j])
     return Actions
 
+def result(Board, Action, Player):
+    CopyBoard = Board[:]
+    CopyBoard[Action[0]][Action[1]] = Player
+    return CopyBoard
+
 def on_b_pressed():
     global mySprite, TicTacToePlayer
     if Tic == 1:

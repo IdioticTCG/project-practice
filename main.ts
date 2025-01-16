@@ -2,6 +2,12 @@ namespace SpriteKind {
     export const NPC = SpriteKind.create()
 }
 
+function result(Board: any, Action: any, Player: any) {
+    let CopyBoard = Board.slice(0)
+    CopyBoard[Action[0]][Action[1]] = Player
+    return CopyBoard
+}
+
 controller.B.onEvent(ControllerButtonEvent.Pressed, function on_b_pressed() {
     
     if (Tic == 1) {
