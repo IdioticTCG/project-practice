@@ -10,7 +10,7 @@ def Actions(Board):
                 Actions.append([i, j])
     return Actions
 
-def result(Board, Action, Player):
+def Result(Board, Action, Player):
     CopyBoard = Board[:]
     CopyBoard[Action[0]][Action[1]] = Player
     return CopyBoard
@@ -75,9 +75,29 @@ def MinValue(Board):
 def Minimax(Board):
     Values = []
     Location = 0
-    Actionscdcfgh = Actions(Board)
     
+    if TicTacToePlayer == 0:
+        BestValue = -2
 
+        for Actions in Actions(Board):
+            Values.append(MinValue(Result(Board, Action)))
+        
+        for i in range(len(Values)):
+            if Values[i] > BestValue:
+                BestValue = Values[i]
+                Location = i
+        return Actions[Location]
+    else:
+        BestValue = -2
+
+        for Actions in Actions(Board):
+            Values.append(MinValue(Result(Board, Action)))
+                
+        for i in range(len(Values)):
+            if Values[i] > BestValue:
+                BestValue = Values[i]
+                Location = i
+        return Actions[Location]
 
 
 def on_b_pressed():
