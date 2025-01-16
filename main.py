@@ -86,6 +86,10 @@ def on_b_pressed():
                 Board3[2][2] = "O"
                 PlaceTile(MiniMax(Board3))
                 TicTacToePlayer = 1
+    if CheckOver(Board3) == 1:
+        game.game_over(False)
+    if CheckOver(Board3) == 0:
+        game.game_over(True)
 controller.B.on_event(ControllerButtonEvent.PRESSED, on_b_pressed)
 
 def CheckOver(Board2: List[List[str]]):
@@ -95,7 +99,7 @@ def CheckOver(Board2: List[List[str]]):
         return 1
     if Board2[2][0] == "X" and Board2[2][1] == "X" and Board2[2][2] == "X":
         return 1
-    if Board2[0][0] == "X" and Board2[0][0] == "X" and Board2[2][0] == "X":
+    if Board2[0][0] == "X" and Board2[1][0] == "X" and Board2[2][0] == "X":
         return 1
     if Board2[0][1] == "X" and Board2[1][1] == "X" and Board2[2][1] == "X":
         return 1
@@ -249,7 +253,7 @@ def MinValue(Board: List[List[str]]):
         return CheckOver(Board)
     Value = 2
     for Act in Actions(Board):
-        Value = min(Value, MinValue(Result(Board, Act, "O")))
+        Value = min(Value, MaxValue(Result(Board, Act, "O")))
     return Value
 
 def MiniMax(Board: List[List[str]]):
@@ -369,21 +373,21 @@ def on_forever():
                 SnowyForest
             """))
             Roger.set_image(img("""
-                . . . . . . . . . . . . . . . . 
-                                . . . . . . . . . . . . . . . . 
-                                . . . . . . . . . . . . . . . . 
-                                . . . . . . . . . . . . . . . . 
-                                . . . . . . . . . . . . . . . . 
-                                . . . . . . . . . . . . . . . . 
-                                . . . . . . . . . . . . . . . . 
-                                . . . . . . . . . . . . . . . . 
-                                . . . . . . . . . . . . . . . . 
-                                . . . . . . . . . . . . . . . . 
-                                . . . . . . . . . . . . . . . . 
-                                . . . . . . . . . . . . . . . . 
-                                . . . . . . . . . . . . . . . . 
-                                . . . . . . . . . . . . . . . . 
-                                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . .
+                                . . . . . . . . . . . . . . . .
+                                . . . . . . . . . . . . . . . .
+                                . . . . . . . . . . . . . . . .
+                                . . . . . . . . . . . . . . . .
+                                . . . . . . . . . . . . . . . .
+                                . . . . . . . . . . . . . . . .
+                                . . . . . . . . . . . . . . . .
+                                . . . . . . . . . . . . . . . .
+                                . . . . . . . . . . . . . . . .
+                                . . . . . . . . . . . . . . . .
+                                . . . . . . . . . . . . . . . .
+                                . . . . . . . . . . . . . . . .
+                                . . . . . . . . . . . . . . . .
+                                . . . . . . . . . . . . . . . .
                                 . . . . . . . . . . . . . . . .
             """))
             Dream.set_image(assets.image("""

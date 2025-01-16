@@ -108,6 +108,14 @@ controller.B.onEvent(ControllerButtonEvent.Pressed, function on_b_pressed() {
         
     }
     
+    if (CheckOver(Board3) == 1) {
+        game.gameOver(false)
+    }
+    
+    if (CheckOver(Board3) == 0) {
+        game.gameOver(true)
+    }
+    
 })
 function CheckOver(Board2: string[][]): number {
     if (Board2[0][0] == "X" && Board2[0][1] == "X" && Board2[0][2] == "X") {
@@ -122,7 +130,7 @@ function CheckOver(Board2: string[][]): number {
         return 1
     }
     
-    if (Board2[0][0] == "X" && Board2[0][0] == "X" && Board2[2][0] == "X") {
+    if (Board2[0][0] == "X" && Board2[1][0] == "X" && Board2[2][0] == "X") {
         return 1
     }
     
@@ -323,7 +331,7 @@ function MinValue(Board: string[][]): number {
     
     let Value = 2
     for (let Act of Actions(Board)) {
-        Value = Math.min(Value, MinValue(Result(Board, Act, "O")))
+        Value = Math.min(Value, MaxValue(Result(Board, Act, "O")))
     }
     return Value
 }
@@ -468,21 +476,21 @@ forever(function on_forever() {
                 SnowyForest
             `)
             Roger.setImage(img`
-                . . . . . . . . . . . . . . . . 
-                                . . . . . . . . . . . . . . . . 
-                                . . . . . . . . . . . . . . . . 
-                                . . . . . . . . . . . . . . . . 
-                                . . . . . . . . . . . . . . . . 
-                                . . . . . . . . . . . . . . . . 
-                                . . . . . . . . . . . . . . . . 
-                                . . . . . . . . . . . . . . . . 
-                                . . . . . . . . . . . . . . . . 
-                                . . . . . . . . . . . . . . . . 
-                                . . . . . . . . . . . . . . . . 
-                                . . . . . . . . . . . . . . . . 
-                                . . . . . . . . . . . . . . . . 
-                                . . . . . . . . . . . . . . . . 
-                                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . .
+                                . . . . . . . . . . . . . . . .
+                                . . . . . . . . . . . . . . . .
+                                . . . . . . . . . . . . . . . .
+                                . . . . . . . . . . . . . . . .
+                                . . . . . . . . . . . . . . . .
+                                . . . . . . . . . . . . . . . .
+                                . . . . . . . . . . . . . . . .
+                                . . . . . . . . . . . . . . . .
+                                . . . . . . . . . . . . . . . .
+                                . . . . . . . . . . . . . . . .
+                                . . . . . . . . . . . . . . . .
+                                . . . . . . . . . . . . . . . .
+                                . . . . . . . . . . . . . . . .
+                                . . . . . . . . . . . . . . . .
                                 . . . . . . . . . . . . . . . .
             `)
             Dream.setImage(assets.image`
